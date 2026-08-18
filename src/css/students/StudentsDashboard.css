@@ -1,6 +1,4 @@
-/* ── StudentsDashboard.css ── */
 
-/* ── Layout ─────────────────────────────────────────────────────── */
 .dashboard {
   display: flex;
   height: 100vh;
@@ -17,7 +15,6 @@
   overflow-y: auto;
 }
 
-/* ── Top bar ─────────────────────────────────────────────────────── */
 .dashboard__topbar {
   display: flex;
   align-items: center;
@@ -403,8 +400,10 @@
   gap: 8px;
   padding: 12px 22px;
   border-radius: 12px;
-  background: linear-gradient(135deg, var(--gold), var(--teal));
+  /* background: linear-gradient(135deg, var(--gold), var(--teal)); */
+  /* background: var(--teal); */
   background: var(--teal);
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
   border: none;
   color: #fff;
   font-family: var(--font-display);
