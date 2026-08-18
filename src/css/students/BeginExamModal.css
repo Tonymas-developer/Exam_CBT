@@ -1,0 +1,287 @@
+/* ── BeginExamModal.css ── */
+
+@keyframes modalPop {
+  from { opacity: 0; transform: scale(0.94) translateY(10px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0);    }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Overlay — same dark purple tint as auth-bg-overlay ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(14, 26, 48, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+/* ── Modal box — mirrors .auth-card ── */
+.begin-exam-modal {
+  background: rgba(14, 26, 48, 0.82);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  /* border: 1px solid rgba(255, 255, 255, 0.28); */
+  border: 0.5px solid #aaaaaabc;
+  border-radius: 22px;
+  width: 100%;
+  max-width: 480px;
+  padding: 34px 36px 30px;
+  position: relative;
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  animation: modalPop 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Close button ── */
+.begin-exam-modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.5);
+  transition: background 0.15s, color 0.15s;
+}
+
+.begin-exam-modal__close:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+}
+
+/* ── Header ── */
+.begin-exam-modal__header {
+  margin-bottom: 6px;
+}
+
+.begin-exam-modal__title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.4px;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.begin-exam-modal__subtitle {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.42);
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.begin-exam-modal__subtitle strong {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* ── Exam info strip — pink-tinted like auth-demo-box ── */
+.begin-exam-modal__strip {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+  padding: 12px 14px;
+  background: rgba(242, 168, 59, 0.09);
+  border: 1px solid rgba(242, 168, 59, 0.24);
+  border-radius: 12px;
+}
+
+/* ── Info chip ── */
+.info-chip {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  min-width: 70px;
+}
+
+.info-chip__label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.info-chip__value {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ── Form ── */
+.begin-exam-modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.begin-exam-modal__field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* label — mirrors .auth-label */
+.begin-exam-modal__label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ccc;
+}
+
+/* input — mirrors .auth-input */
+.begin-exam-modal__input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 11px;
+  padding: 13px 16px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #ffffff;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.begin-exam-modal__input::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.begin-exam-modal__input:focus {
+  border-color: var(--gold);
+  background: rgba(242, 168, 59, 0.06);
+}
+
+.begin-exam-modal__input--code {
+  font-family: var(--font-mono, monospace);
+  letter-spacing: 2px;
+  padding-right: 46px;
+}
+
+/* ── Password wrap ── */
+.begin-exam-modal__password-wrap {
+  position: relative;
+}
+
+/* eye button — mirrors .auth-eye-btn */
+.begin-exam-modal__eye-btn {
+  position: absolute;
+  right: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.35);
+  display: flex;
+  align-items: center;
+  padding: 0;
+  cursor: pointer;
+  transition: color 0.18s;
+}
+
+.begin-exam-modal__eye-btn:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* hint text */
+.begin-exam-modal__hint {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.28);
+  margin-top: 6px;
+}
+
+/* ── Error box ── */
+.begin-exam-modal__error {
+  padding: 10px 14px;
+  background: rgba(255, 77, 77, 0.12);
+  border: 1px solid rgba(255, 77, 77, 0.3);
+  border-radius: 10px;
+  color: #ff7070;
+  font-size: 13px;
+}
+
+/* ── Actions ── */
+.begin-exam-modal__actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+/* Cancel — subtle ghost button */
+.begin-exam-modal__cancel-btn {
+  flex: 1;
+  padding: 13px;
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.55);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.begin-exam-modal__cancel-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Verify button — matches .auth-btn (student login) / .login-submit-btn
+   (admin login) exactly: both resolve to the same flat gold background,
+   so this button now looks identical to "Sign In" instead of the old
+   gold→navy gradient it had before. */
+.begin-exam-modal__verify-btn {
+  flex: 2;
+  padding: 13px;
+  border-radius: 11px;
+  background: var(--gold);
+  border: none;
+  color: var(--charcoal, #2B2B2B);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 24px rgba(242, 168, 59, 0.35);
+  transition: background-color 0.15s;
+}
+
+.begin-exam-modal__verify-btn:hover {
+  background-color: #D6902A;
+}
+
+.begin-exam-modal__verify-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.begin-exam-modal__spin {
+  animation: spin 0.8s linear infinite;
+}

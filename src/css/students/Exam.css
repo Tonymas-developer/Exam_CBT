@@ -1,0 +1,478 @@
+/* ── ExamPage.css ── */
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Page */
+.exam-page {
+  min-height: 100vh;
+  background: #F9FAFB;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ── */
+.exam-page__header {
+  background: var(--navy);
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  flex-wrap: wrap;
+}
+
+.exam-page__header-info {
+  flex: 1;
+}
+
+.exam-page__header-subject {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 18px;
+  color: #fff;
+}
+
+.exam-page__header-meta {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.65);
+  margin-top: 2px;
+}
+
+.exam-page__header-meta--mono {
+  font-family: var(--font-mono);
+}
+
+/* Timer */
+.exam-page__timer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 2px solid;
+  /* border-color set inline (dynamic) */
+}
+
+.exam-page__timer-text {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 20px;
+  /* color set inline (dynamic) */
+}
+
+/* Submit button */
+.exam-page__submit-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  background: #10B981;
+  border: none;
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.exam-page__submit-btn:hover {
+  background: #059669;
+}
+
+/* Body */
+.exam-page__body {
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 28px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Progress bar */
+.exam-page__progress-wrap {
+  height: 6px;
+  background: #E5E7EB;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.exam-page__progress-bar {
+  height: 100%;
+  background: var(--navy);
+  border-radius: 3px;
+  transition: width 0.3s;
+}
+
+.exam-page__progress-label {
+  font-size: 12px;
+  color: #6B7280;
+  text-align: right;
+  margin-top: -12px;
+}
+
+/* Question card */
+.exam-page__question-card {
+  background: #fff;
+  border: 1px solid #E5E7EB;
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.exam-page__question-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.exam-page__question-badge {
+  background: var(--navy-pale);
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-family: var(--font-display);
+}
+
+.exam-page__marks-badge {
+  font-size: 13px;
+  color: #6B7280;
+  font-weight: 600;
+}
+
+.exam-page__question-text {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--navy);
+  line-height: 1.5;
+  margin-bottom: 24px;
+  margin-top: 0;
+}
+
+/* Options */
+.exam-page__options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.exam-page__option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 16px;
+  border-radius: 10px;
+  border: 1.5px solid #E5E7EB;
+  background: #FAFAFA;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-body);
+  transition: border-color 0.15s, background 0.15s;
+  width: 100%;
+}
+
+.exam-page__option:hover {
+  border-color: var(--navy-light);
+  background: var(--navy-pale);
+}
+
+.exam-page__option--selected {
+  border-color: var(--navy);
+  background: var(--navy-pale);
+}
+
+.exam-page__option-label {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: #E5E7EB;
+  color: #374151;
+  font-weight: 700;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  transition: background 0.15s, color 0.15s;
+}
+
+.exam-page__option-label--selected {
+  background: var(--navy);
+  color: #fff;
+}
+
+.exam-page__option-text {
+  font-size: 15px;
+  color: var(--navy);
+  font-weight: 500;
+}
+
+/* Navigation row */
+.exam-page__nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.exam-page__nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  background: var(--navy);
+  border: none;
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.exam-page__nav-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.exam-page__nav-btn--submit {
+  background: #10B981;
+}
+
+.exam-page__nav-btn--submit:hover {
+  background: #059669;
+}
+
+/* Question dots */
+.exam-page__dots {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.exam-page__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  padding: 0;
+}
+
+.exam-page__dot:hover {
+  transform: scale(1.25);
+}
+
+/* ── Confirm modal ── */
+.exam-page__confirm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 44, 82, 0.6);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 16px;
+}
+
+.exam-page__confirm-modal {
+  background: #fff;
+  border-radius: 20px;
+  padding: 36px 32px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.exam-page__confirm-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 22px;
+  color: var(--navy);
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.exam-page__confirm-text {
+  font-size: 14px;
+  color: #6B7280;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.exam-page__confirm-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.exam-page__confirm-cancel {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  background: #F3F4F6;
+  border: none;
+  color: #374151;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.exam-page__confirm-cancel:hover {
+  background: #E5E7EB;
+}
+
+.exam-page__confirm-submit {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  background: var(--gold);
+  border: none;
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* ── Result screen ── */
+.exam-page__result {
+  min-height: 100vh;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.exam-page__result-card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 48px 36px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+}
+
+.exam-page__result-emoji {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.exam-page__result-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 28px;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.exam-page__result-sub {
+  font-size: 13px;
+  color: #9CA3AF;
+  margin-bottom: 28px;
+}
+
+.exam-page__score-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  box-shadow: 0 8px 24px rgba(242, 168, 59, 0.35);
+  gap: 2px;
+}
+
+.exam-page__score-num {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 36px;
+  color: var(--navy-dark);
+}
+
+.exam-page__score-max {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  color: rgba(20, 44, 82, 0.6);
+  align-self: flex-end;
+  margin-bottom: 6px;
+}
+
+.exam-page__result-note {
+  font-size: 13px;
+  color: #6B7280;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.exam-page__result-home-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  background: var(--gold);
+  border: none;
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(242, 168, 59, 0.3);
+  transition: transform 0.1s;
+}
+
+.exam-page__result-home-btn:hover {
+  transform: translateY(-1px);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   RESPONSIVE — exam-taking page
+   ══════════════════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+  .exam-page__header {
+    padding: 12px 16px;
+  }
+  .exam-page__header-subject {
+    font-size: 15px;
+  }
+  .exam-page__body {
+    padding: 18px 14px;
+  }
+  .exam-page__timer-text {
+    font-size: 16px;
+  }
+  .exam-page__submit-btn {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+  .exam-page__result-card {
+    padding: 32px 22px;
+  }
+  .exam-page__score-circle {
+    width: 96px;
+    height: 96px;
+  }
+}

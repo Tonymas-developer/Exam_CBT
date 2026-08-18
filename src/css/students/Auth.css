@@ -1,0 +1,267 @@
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  /* background-image: url("https://images.unsplash.com/photo-1531545514256-b1400bc00f31?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHN0dWRlbnRzfGVufDB8fDB8fHww"); */
+  background-image: url('../../../public/bg-img.avif');
+  background-size: cover;
+  background-position: center;
+}
+
+.auth-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(20, 44, 82, 0.7);
+  z-index: 0;
+}
+
+.auth-bg-glow {
+  position: absolute;
+  bottom: -140px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 640px;
+  height: 320px;
+  background: radial-gradient(ellipse, rgba(242, 168, 59, 0.2) 0%, transparent 68%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ─── Card ──────────────────────────────────────────────────────── */
+.auth-card {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 430px;
+  margin: 0 16px;
+  background: rgba(14, 26, 48, 0.75);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 22px;
+  padding: 34px 36px 30px;
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+@media (max-width: 420px) {
+  .auth-card {
+    margin: 0 10px;
+    padding: 26px 20px 22px;
+    border-radius: 18px;
+  }
+}
+
+/* ─── Staff / admin login link ─────────────────────────────────────
+   Deliberately understated — most visitors to this page are students,
+   so this is a quiet way for staff to find their own login without a
+   prominent button competing with the student flow, but without
+   requiring anyone to be told a bare URL either. */
+.auth-staff-link {
+  position: relative;
+  z-index: 10;
+  margin-top: 22px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: color 0.15s;
+}
+
+.auth-staff-link:hover {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: underline;
+}
+
+/* ─── Form Headings ─────────────────────────────────────────────── */
+.auth-heading {
+  margin-bottom: 6px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.4px;
+  text-align: center;
+}
+
+.auth-subheading {
+  margin-bottom: 26px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.42);
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ─── Field ─────────────────────────────────────────────────────── */
+.auth-field {
+  margin-bottom: 18px;
+}
+
+.auth-label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ccc;
+  text-align: left;
+}
+
+.auth-label .required-star {
+  color: var(--gold);
+  margin-left: 2px;
+}
+
+.auth-input-wrap {
+  position: relative;
+}
+
+.auth-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 11px;
+  padding: 13px 16px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #ffffff;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.auth-input::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.auth-input:focus {
+  border-color: var(--gold);
+  background: rgba(242, 168, 59, 0.06);
+}
+
+.auth-input.has-toggle {
+  padding-right: 46px;
+}
+
+.auth-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.35)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+}
+
+.auth-select option {
+  background: var(--navy-dark);
+  color: #fff;
+}
+
+.auth-eye-btn {
+  position: absolute;
+  right: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.35);
+  display: flex;
+  align-items: center;
+  padding: 0;
+  transition: color 0.18s;
+}
+
+.auth-eye-btn:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ─── CTA Button ────────────────────────────────────────────────── */
+.auth-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin-top: 8px;
+  /* background: linear-gradient(135deg, var(--gold) 0%, var(--navy-light) 100%); */
+  background: var(--gold);
+  border: none;
+  border-radius: 11px !important;
+  /* color: #ffffff; */
+  font-size: 15px;
+  font-weight: 700;
+  font-family: inherit;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 24px rgba(242, 168, 59, 0.35);
+  will-change: transform;
+  transform-origin: center center;
+}
+
+.auth-btn:hover {
+  /* opacity: 0.9; */
+  background-color: #D6902A;
+}
+
+.auth-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* ─── Inline messages ───────────────────────────────────────────── */
+.auth-message {
+  margin: 10px 0 0;
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.auth-message.error {
+  color: #ff8a8a;
+}
+
+.auth-message.success {
+  color: var(--teal-light);
+}
+
+/* ─── Switch Link ───────────────────────────────────────────────── */
+.auth-switch {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.auth-switch-btn {
+  background: none;
+  border: none;
+  color: var(--gold);
+  font-size: 13.5px;
+  font-weight: 600;
+  font-family: inherit;
+  padding: 0;
+  transition: all 0.5s;
+}
+
+.auth-switch-btn:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* Motion clip container */
+.auth-form-clip {
+  overflow: hidden;
+}
+
+/* Forgot password button */
+.auth-forgot-password {
+  background-color: transparent;
+  border: none;
+  color: var(--gold);
+  margin-bottom: 10px;
+  font-family: inherit;
+  font-size: 13px;
+  padding: 0;
+}

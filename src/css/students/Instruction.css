@@ -1,0 +1,285 @@
+/* ── InstructionsPage.css ── */
+
+.instructions-page {
+  min-height: 100vh;
+  background: #F9FAFB;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.instructions-page__header {
+  background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+  background: var(--navy);
+  padding: 18px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.instructions-page__header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.instructions-page__back-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+.instructions-page__back-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.instructions-page__header-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  color: #fff;
+}
+
+.instructions-page__header-sub {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.65);
+  margin-top: 2px;
+}
+
+.instructions-page__header-right {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.instructions-page__student-chip {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+.instructions-page__student-chip--mono {
+  font-family: var(--font-mono);
+}
+
+/* Body */
+.instructions-page__body {
+  flex: 1;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Summary card */
+.instructions-page__summary {
+  background: #fff;
+  border: 1px solid #E5E7EB;
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.instructions-page__summary-col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 80px;
+}
+
+.instructions-page__summary-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #9CA3AF;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.instructions-page__summary-value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--navy);
+}
+
+.instructions-page__divider {
+  width: 1px;
+  background: #E5E7EB;
+  align-self: stretch;
+}
+
+/* Two-column layout */
+.instructions-page__columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 640px) {
+  .instructions-page__columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+.instructions-page__left-col {
+  background: #fff;
+  border: 1px solid #E5E7EB;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.instructions-page__right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Section title */
+.instructions-page__section-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Instruction list */
+.instructions-page__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-left: 0;
+  list-style: none;
+  margin: 0;
+}
+
+.instructions-page__list-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 14px;
+  color: #374151;
+  line-height: 1.6;
+}
+
+.instructions-page__num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Quick cards */
+.quick-card {
+  background: #fff;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.quick-card__icon-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quick-card__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--navy);
+}
+
+.quick-card__text {
+  font-size: 13px;
+  color: #6B7280;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Start row */
+.instructions-page__start-row {
+  background: #fff;
+  border: 1px solid #E5E7EB;
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.instructions-page__start-note {
+  font-size: 13px;
+  color: #6B7280;
+  flex: 1;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.instructions-page__start-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 12px;
+  /* background: linear-gradient(135deg, var(--gold), var(--teal)); */
+  background: var(--teal);
+  border: none;
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  /* box-shadow: 0 4px 16px rgba(242, 168, 59, 0.35); */
+  flex-shrink: 0;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.instructions-page__start-btn:hover {
+  transform: translateY(-1px);
+  /* box-shadow: 0 6px 20px rgba(242, 168, 59, 0.45); */
+  /* box-shadow: 0 6px 20px var(--teal); */
+}
+
+.instructions-page__start-btn:hover .chevron-right{
+  transform: translateX(5px);
+  transition: 0.8s;
+}

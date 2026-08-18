@@ -1,0 +1,46 @@
+/* ─── Global Reset & CSS Variables ─────────────────────────────── */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;700&display=swap");
+
+:root {
+  --font-display: "Plus Jakarta Sans", "Inter", "Segoe UI", sans-serif;
+  --font-body: "Inter", "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", "Consolas", monospace;
+
+  --navy: #1b3a6b;
+  --navy-dark: #142c52;
+  --navy-light: #2a4d85;
+  --navy-pale: #eaeff6;
+
+  --gold: #f2a83b;
+  --gold-dark: #d6902a;
+  --gold-light: #fbe4bb;
+  --gold-pale: #fdf3e2;
+
+  --teal: #2e8b74;
+  --teal-dark: #226b59;
+  --teal-light: #bfe3d9;
+  --teal-pale: #e9f5f2;
+
+  --off-white: #f7f6f2;
+  --charcoal: #2b2b2b;
+  --charcoal-mid: #55534d;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: var(--font-body);
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}

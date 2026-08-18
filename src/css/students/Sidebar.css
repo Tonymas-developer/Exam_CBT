@@ -1,0 +1,321 @@
+.sidebar {
+  width: 280px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  flex-shrink: 0;
+  transition: width 0.22s ease;
+}
+
+/* Brand */
+.sidebar__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 24px 20px 20px;
+  /* border-bottom: 1px solid rgba(255, 255, 255, 0.08); */
+  border-bottom: 1px solid #aaaaaa8b;
+}
+
+.sidebar__logo-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--navy-light), var(--navy));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Hidden on desktop — only relevant once the sidebar becomes an
+   off-canvas drawer on mobile (see media query below). */
+.sidebar__mobile-close {
+  display: none;
+}
+
+.sidebar__school-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 13px;
+  color: #fff;
+  line-height: 1.25;
+  /* Previously this could get silently clipped by .sidebar's
+     overflow-x: hidden once the flex row ran out of room (flex items
+     don't shrink below their content's intrinsic width by default) —
+     now it wraps onto a second line instead of losing text. */
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.sidebar__brand-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.sidebar__school-sub {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: 2px;
+}
+
+/* Nav */
+.sidebar__nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 16px 12px;
+}
+
+.sidebar__nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  font-family: var(--font-body);
+  cursor: pointer;
+  text-align: left;
+  transition:
+    background 0.15s,
+    color 0.15s;
+  width: 100%;
+}
+
+.sidebar__nav-item:hover {
+  background: rgba(46, 139, 116, 0.25);
+  color: #fff;
+}
+
+.sidebar__nav-item--active {
+  /* background: var(--teal); */
+  background: rgba(255,255,255,0.22);
+  color: #fff;
+}
+
+.sidebar__nav-item svg {
+  flex-shrink: 0;
+}
+
+/* Bottom */
+.sidebar__bottom {
+  padding: 16px 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar__student-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+}
+
+.sidebar__avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  font-family: var(--font-display);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sidebar__student-info {
+  overflow: hidden;
+}
+
+.sidebar__student-name {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar__student-class {
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 11px;
+  margin-top: 1px;
+}
+
+.sidebar__logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border-radius: 8px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 13px;
+  font-family: var(--font-body);
+  cursor: pointer;
+  width: 100%;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+
+.sidebar__logout-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ── Collapsed state ── */
+.sidebar--collapsed {
+  width: 68px;
+}
+
+.sidebar--collapsed .sidebar__brand {
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.sidebar--collapsed .sidebar__nav-item {
+  justify-content: center;
+  padding: 12px 0;
+}
+
+.sidebar__collapse-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: transparent;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 13px;
+  font-family: var(--font-body);
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.15s, color 0.15s;
+}
+
+.sidebar__collapse-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.sidebar--collapsed .sidebar__collapse-btn {
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.sidebar__bottom--collapsed {
+  padding: 12px 0;
+  align-items: center;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar__avatar--sm {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  font-family: var(--font-display);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sidebar__logout-btn--icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   RESPONSIVE — student sidebar becomes an off-canvas drawer on mobile
+   ══════════════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .sidebar__mobile-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border: none;
+    color: rgba(255, 255, 255, 0.75);
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .sidebar__mobile-close:hover {
+    background: rgba(255, 255, 255, 0.16);
+    color: #fff;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.22s ease;
+    width: 260px;
+    z-index: 100;
+  }
+  .sidebar--mobile-open {
+    transform: translateX(0);
+  }
+  /* Ignore the desktop "collapsed" icon-only width while the drawer is
+     open on mobile — it should always open at full width there. */
+  .sidebar--collapsed.sidebar--mobile-open {
+    width: 260px;
+  }
+  .sidebar--collapsed.sidebar--mobile-open .sidebar__school-name,
+  .sidebar--collapsed.sidebar--mobile-open .sidebar__nav-item span,
+  .sidebar--collapsed.sidebar--mobile-open .sidebar__collapse-btn span {
+    display: inline;
+  }
+}
