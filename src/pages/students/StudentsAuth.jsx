@@ -142,7 +142,7 @@ function LoginForm({ onSwitch }) {
       transition={transition}
     >
       <form onSubmit={handleLogin}>
-        <h1 className='auth-heading'>Welcome Back!</h1>
+        <h1 className='auth-heading'>Login</h1>
         <p className='auth-subheading'>
           Enter your email (or reg. number) and password
         </p>
